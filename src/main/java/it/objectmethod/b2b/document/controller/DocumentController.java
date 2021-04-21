@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import it.objectmethod.b2b.document.service.DocumentService;
 import it.objectmethod.b2b.document.service.dto.DocumentDTO;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/document")
 public class DocumentController {
 	@Autowired
