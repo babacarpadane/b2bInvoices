@@ -1,7 +1,6 @@
 package it.objectmethod.b2b.document.service.dto;
 
 import java.util.Date;
-import java.util.List;
 
 public class DocumentDTO {
 	private Long idDocument;
@@ -10,7 +9,6 @@ public class DocumentDTO {
 	private String documentNumber;
 	private String flowType;
 	private String sender;
-	private List<NotificationDTO> listNotifications;
 
 	public Long getIdDocument() {
 		return idDocument;
@@ -58,14 +56,6 @@ public class DocumentDTO {
 
 	public void setSender(String sender) {
 		this.sender = sender;
-	}
-
-	public List<NotificationDTO> getListNotifications() {
-		return listNotifications;
-	}
-
-	public void setListNotifications(List<NotificationDTO> listNotifications) {
-		this.listNotifications = listNotifications;
 	}
 
 }

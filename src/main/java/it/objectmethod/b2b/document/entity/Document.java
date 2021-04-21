@@ -1,14 +1,11 @@
 package it.objectmethod.b2b.document.entity;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,10 +30,6 @@ public class Document {
 
 	@Column(name = "sender")
 	private String sender;
-
-	@OneToMany
-	@JoinColumn(name = "document_id")
-	private List<Notification> listNotifications;
 
 	public Long getIdDocument() {
 		return idDocument;
@@ -84,14 +77,6 @@ public class Document {
 
 	public void setSender(String sender) {
 		this.sender = sender;
-	}
-
-	public List<Notification> getListNotifications() {
-		return listNotifications;
-	}
-
-	public void setListNotifications(List<Notification> listNotifications) {
-		this.listNotifications = listNotifications;
 	}
 
 }

@@ -20,15 +20,20 @@ public class DocumentController {
 	private DocumentService docSer;
 
 	@GetMapping("/all")
-	public ResponseEntity<List<DocumentDTO>> showAllDocuments(@RequestParam("first_doc") Long firstDoc,
-			@RequestParam("last_doc") Long lastDoc) {
+	public ResponseEntity<List<DocumentDTO>> showAllDocuments(@RequestParam("first_doc") Long firstDoc) {
 		ResponseEntity<List<DocumentDTO>> resp = null;
-		List<DocumentDTO> finalList = docSer.showAllDocuments(firstDoc, lastDoc);
+		List<DocumentDTO> finalList = docSer.showAllDocuments(firstDoc);
 		if (finalList != null) {
 			resp = new ResponseEntity<List<DocumentDTO>>(finalList, HttpStatus.OK);
 		} else {
 			resp = new ResponseEntity<List<DocumentDTO>>(HttpStatus.BAD_REQUEST);
 		}
 		return resp;
+	}
+
+	@GetMapping("/count")
+	public Long howManyPages() {
+		Long pages = docSer.howManyPages();
+		return pages;
 	}
 }

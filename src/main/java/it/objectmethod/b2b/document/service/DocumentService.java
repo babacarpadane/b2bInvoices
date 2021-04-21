@@ -18,11 +18,17 @@ public class DocumentService {
 	@Autowired
 	private DocumentMapper docMap;
 
-	public List<DocumentDTO> showAllDocuments(Long firstDoc, Long lastDoc) {
-		List<Document> listDocuments = docRep.printOnePageDocument(firstDoc, lastDoc);
+	public List<DocumentDTO> showAllDocuments(Long firstDoc) {
+		List<Document> listDocuments = docRep.printOnePageDocument(firstDoc);
 		List<DocumentDTO> listDocumentDto = docMap.toDto(listDocuments);
 		return listDocumentDto;
 
+	}
+
+	public Long howManyPages() {
+		Long numberOfDocument = docRep.numberOfDocuments();
+		Long pages = (numberOfDocument / 20) + ((numberOfDocument % 20 == 0) ? 0 : 1);
+		return pages;
 	}
 
 }
